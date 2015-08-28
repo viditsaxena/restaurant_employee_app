@@ -1,0 +1,11 @@
+
+
+
+<ul>
+  <% @parties.each do |party| %>
+    <li>
+  Table - <%= party.stand_number %>, # of people <%= party.number_of_people %>, Special request
+  <%= party.special_request %>
+    </li>
+  <% end %>
+</ul>

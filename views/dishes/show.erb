@@ -1,0 +1,26 @@
+
+
+
+
+
+<ul>
+
+
+<li>  <%= @dish.name %> </li>
+<li>  <%=@dish.price%> </li>
+
+
+</ul>
+
+<div>
+
+  <FORM METHOD="LINK" ACTION="/dishes/<%= @dish.id %>/edit">
+  <INPUT TYPE="submit" VALUE="Edit">
+  </FORM>
+  <form action="/dishes/<%= @dish.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Dish">
+  </form>
+
+
+  </div>

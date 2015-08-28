@@ -1,0 +1,39 @@
+<h3>New Item Order</h3>
+
+<div class="row">
+
+<form class="form" action="/item_orders" method="post">
+
+
+  <p>
+    <% @parties.each do |party| %>
+
+    <input name="party[id]" type="radio" id="party-<%= party.id %>" value="<%= party.id %>"/>
+    <label for="party-<%= party.id %>"><%= party.stand_number %></label>
+
+    <% end %>
+  </p>
+
+
+
+
+
+
+
+
+    <% @dishes.each do |dish| %>
+    <p>
+    <input type="checkbox" name="dish[][id]" id="dish-<%= dish.id %>" value="<%= dish.id %>" />
+    <label for="dish-<%= dish.id %>"><%= dish.name %></label>
+    </p>
+    <% end %>
+
+    <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons"></i>
+      </button>
+
+
+
+</form>
+
+</div>

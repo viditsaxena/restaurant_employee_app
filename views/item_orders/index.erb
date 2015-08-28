@@ -1,0 +1,13 @@
+<h3>Item Orders</h3>
+
+<a href="/item_orders/new">New Item Order</a>
+
+<ul>
+
+  <% @item_orders.each do |item_order| %>
+    <li>
+     <%= item_order.id %>
+    </li>
+  <% end %>
+
+</ul>

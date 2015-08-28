@@ -1,0 +1,16 @@
+<h4>Welcome to the Restaurant</h4>
+<p>
+  Here are our dishes
+</p>
+
+<a href="/dishes/new">New Dish</a>
+
+<ul>
+
+  <% @dishes.each do |dish| %>
+    <li>
+      <%= dish.name %> -- <%= dish.price %>
+    </li>
+  <% end %>
+
+</ul>
