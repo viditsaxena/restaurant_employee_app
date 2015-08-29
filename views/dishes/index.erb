@@ -3,14 +3,14 @@
   Here are our dishes
 </p>
 
-<a href="/dishes/new">New Dish</a>
-
-<ul>
-
+<div class="collection">
   <% @dishes.each do |dish| %>
-    <li>
-      <%= dish.name %> -- <%= dish.price %>
-    </li>
+  <a href="/dishes/<%= dish.id %>/edit" class="collection-item"><%= dish.name %> - <%= dish.price %></a>
   <% end %>
+</div>
 
-</ul>
+
+
+<div class="row">
+ <a href="/dishes/new" class="waves-effect waves-light btn"><i class="material-icons left"></i>Add New Dish</a>
+</div>

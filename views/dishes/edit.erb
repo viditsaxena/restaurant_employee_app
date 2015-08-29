@@ -1,11 +1,29 @@
 <h3>Edit a specific dish</h3>
 
-
+<div class="row">
 <form class="form" action="/dishes/<%= @dish.id %>" method="post">
   <input type="hidden" name="_method" value="put">
   <input type="text" name="dish[name]" value="<%=@dish.name%>">
   <input type="text" name="dish[price]" value="<%=@dish.price%>">
-  <input type="submit" value="Update Dish">
 
+  <div class="col s6">
+         <button class="btn-large waves-effect waves-light" type="submit" name="action">Update Dish
+        <i class="material-icons"></i>
+         </button>
+         </div>
+      </form>
+
+
+
+    <div class="col s6">
+
+  <form action="/dishes/<%= @dish.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button class="btn-large waves-effect waves-light" type="submit" name="action">Delete Dish
+        <i class="material-icons"></i>
+    </button>
 
 </form>
+
+</div>
+</div>

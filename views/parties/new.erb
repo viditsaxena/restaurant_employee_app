@@ -1,12 +1,34 @@
-<h3>New Table!</h3>
+<h3></h3>
 
 
-<form  class="form" action="/parties" method="post">
-  <input type="text" name="party[number_of_people]" placeholder="..# of people">
-  <input type="text" name="party[special_request]" placeholder="..special request?">
-  <input type="text" name="party[has_paid]" placeholder="..paid?">
-  <input type="text" name="party[stand_number]" placeholder="..table_number">
-  <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit
-      <i class="material-icons"></i>
-    </button>
-</form>
+<div class="row">
+    <form class="col s12 form" action="/parties" method="post">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="number_of_people" name="party[number_of_people]" type="text" class="validate">
+          <label for="number_of_people">Number of People</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="has_paid" name="party[has_paid]" default value="false" type="text" class="validate">
+          <label for="has_paid">Paid?</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="party[special_request]" id="special_request" type="text" class="validate">
+          <label for="special_request">Any Special Requests</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="party[stand_number]" id="stand_number" type="text" class="validate">
+          <label for="stand_number">Table Number</label>
+        </div>
+      </div>
+      <button class="btn-large waves-effect waves-light" type="submit" name="action">
+          <i class="material-icons">send</i>
+        </button>
+
+
+    </form>
+  </div>

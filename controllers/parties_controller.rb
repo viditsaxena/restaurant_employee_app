@@ -14,13 +14,14 @@ class PartiesController < ApplicationController
   # '/parties'
   post '/' do
     Party.create(params[:party])
-    redirect '/item_orders/new'  # Normally we'd direct to the SHOW
+    redirect '/'  # Normally we'd direct to the SHOW
   end
 
   # '/parties'*******SHOW
   get '/:id' do
     @party = Party.find(params[:id])
     @dishes= @party.dishes
+    @item_orders= @party.item_orders
     sub_total = []
     @dishes.each do |dish|
       sub_total.push(dish.price)
@@ -47,9 +48,9 @@ class PartiesController < ApplicationController
   # '/parties'
   delete '/:id' do
     party = Party.find(params[:id])
-    # party.item_orders.each {|item_order| item_order.delete }
+    party.item_orders.each {|item_order| item_order.delete }
     party.delete()
-    redirect '/parties'
+    redirect '/'
   end
 
 end

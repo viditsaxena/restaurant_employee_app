@@ -2,15 +2,13 @@ class ItemOrdersController < ApplicationController
 
 
   get '/' do
-    @item_orders = ItemOrder.all
-    @parties = Party.all
-    @dishes = Dish.all
+    @parties = Party.where(has_paid: false)
     erb :'item_orders/index'
   end
 
 
   get '/new' do
-    @parties = Party.all
+    @parties = Party.where(has_paid: false)
     @dishes = Dish.all
     erb :'item_orders/new'
   end
@@ -28,9 +26,19 @@ class ItemOrdersController < ApplicationController
         dish_id: dish[:id]
         })
     end
-    byebug
-    redirect '/parties/<%= party[:id] %>'
+
+    redirect "/parties/#{party[:id]}"
   end
+
+  delete '/:id' do
+
+    item_order = ItemOrder.find(params[:id])
+    party = item_order.party
+
+    item_order.delete()
+    redirect "/parties/#{party.id}"
+  end
+
 
 
 end

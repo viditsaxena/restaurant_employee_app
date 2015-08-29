@@ -6,8 +6,11 @@
     <!-- <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css'>
     <link rel="stylesheet" href="/css/styles.css"> -->
     <!--Import materialize.css-->
+
     <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script type="text/javascript" src='javascripts/jquery.js'></script>
@@ -17,12 +20,23 @@
   <body>
    <div class="container">
      <div class="row">
-     <a href="/"><h3>RESTaurant</h3></a>
-     </div>
+
+       <nav>
+         <div class="nav-wrapper">
+           <a href="/" class="brand-logo center">Gadoe's</a>
+           <ul id="nav-mobile" class="left hide-on-med-and-down">
+             <li><a href="/dishes">Menu</a></li>
+             <li><a href="/item_orders/new">Add New Order</a></li>
+           </ul>
+         </div>
+       </nav>
+    </div>
+
+
 
     <%= yield %>
 
-    </div>
+  </div>
 
   </body>
 </html>

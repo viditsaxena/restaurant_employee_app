@@ -1,37 +1,65 @@
 
 
-<h3>Table number <%=@party.stand_number%></h3>
+<div class="row">
+
+      <div class="col s6 offset-s3">
+        <a href="/parties/<%= @party.id%>/edit">
+         <div class="card hoverable blue-grey darken-1">
+           <div class="card-content white-text">
+             <span class="card-title">
+               Party of <%= @party.number_of_people %> at <%=@party.stand_number%>
+             </span>
+             <p>
+               <h6>Special Request - </h6>
+               <%=@party.special_request%>
+             </p>
+           </div>
+           <div class="card-action">
+             <a href="/parties/<%= @party.id%>/edit"></a>
+           </div>
+         </div>
+        </a>
+    </div>
+
+</div>
+<div class="row">
+           <table class="bordered striped">
+             <thead>
+               <tr>
+                   <th data-field="name">Item Name</th>
+                   <th data-field="price">Item Price</th>
+                   <th data-field="">Actions</th>
+               </tr>
+             </thead>
+
+             <tbody>
+               <% @item_orders.each do |item_order| %>
+               <tr>
+                 <td><%= item_order.dish.name %></td>
+                 <td><%=item_order.dish.price%></td>
+                 <td>
+                   <form action="/item_orders/<%=item_order.id %>" method="post">
+                     <input type="hidden" name="_method" value="delete">
+                     <button class="btn waves-effect waves-light" type="submit" name="action">
+                     <i class="material-icons">delete</i>
+                     </button>
+                   </form>
+                 </td>
+               </tr>
+               <% end %>
+               <tr>
+                 <td>Sub Total</td>
+                 <td><%= @total %> </td>
+                 <td> </td>
+               </tr>
+             </tbody>
+           </table>
+</div>
+
+<div class="row">
 
 
-<ul>
 
+<a href="/item_orders/new" class="waves-effect waves-light btn"><i class="material-icons left"></i>Add New Order</a>
 
-<li>  <%= @party.number_of_people %> </li>
-<li>  <%=@party.special_request%> </li>
-<li>  <%=@party.has_paid%></li>
-<li>  <%=@party.stand_number%></li>
-
-</ul>
-
-<ul>
-
-  <% @dishes.each do |dish| %>
-  <li>
-    <%=dish.name%> -- <%=dish.price%>
-  </li>
-  <%end%>
-
-<h2>  Total is <%= @total %> </h2>
-
-<div>
-
-  <FORM METHOD="LINK" ACTION="/parties/<%= @party.id %>/edit">
-  <INPUT TYPE="submit" VALUE="Edit">
-  </FORM>
-  <form action="/parties/<%= @party.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Party">
-  </form>
-
-
-  </div>
+</div>

@@ -1,12 +1,11 @@
-<div class="collection">
-       <% @parties.each do |party| %>
-       <a href="/parties/<%= party.id %>" class="collection-item">Table # - <%= party.stand_number %></a>
-       <% end %>
-     </div>
 
 <div class="row">
+ <a href="/parties/new" class="waves-effect waves-light btn"><i class="material-icons left"></i>Add New Party</a>
+</div>
 
 
-     <a href="/parties/new" class="waves-effect waves-light btn"><i class="material-icons left"></i>Add New Party</a>
-
-     </div>
+<div class="collection">
+  <% @parties.each do |party| %>
+  <a href="/parties/<%= party.id %>" class="collection-item">Table - <%= party.stand_number %></a>
+  <% end %>
+</div>

@@ -6,6 +6,18 @@
     <li>
   Table - <%= party.stand_number %>, # of people <%= party.number_of_people %>, Special request
   <%= party.special_request %>
+  <FORM METHOD="LINK" ACTION="/parties/<%= party.id %>/edit">
+  <INPUT TYPE="submit" VALUE="Edit">
+  </FORM>
+  <form action="/parties/<%= party.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Party">
+  </form>
     </li>
   <% end %>
 </ul>
+
+
+<div class="row">
+ <a href="/parties/new" class="waves-effect waves-light btn"><i class="material-icons left"></i>Add New Party</a>
+</div>

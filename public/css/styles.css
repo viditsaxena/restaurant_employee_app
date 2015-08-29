@@ -45,3 +45,13 @@ input {
   margin: auto;
   align=center;
 }
+
+.brand-logo{
+  font-size: 5em;
+font-family: 'Dancing Script', cursive;
+}
+
+.clickable {
+  cursor: pointer;
+  cursor: hand;
+}

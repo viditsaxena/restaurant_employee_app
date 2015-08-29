@@ -1,13 +1,36 @@
 <h3>Item Orders</h3>
 
-<a href="/item_orders/new">New Item Order</a>
+<div class="row">
+<table class="bordered">
+  <thead>
 
-<ul>
+    <% @parties.each do |party| %>
+    <tr>
+       <th><%= party.stand_number%></th>
+    </tr>
+  </thead>
+   <tbody>
+     <% party.item_orders.each do |item_order| %>
+     <tr>
+       <td><%= item_order.dish.name %></td>
+       <td class="hide_on_click clickable">
+         <i class="material-icons">thumb_up</i>
+       </td>
+     </tr>
+     <% end %>
 
-  <% @item_orders.each do |item_order| %>
+   </tbody>
+   <% end %>
+ </table>
+</div>
+
+  <!-- <% @parties.each do |party| %>
+  <h6><%= party.stand_number%></h6>
+  <div class="row">
+  <% party.item_orders.each do |item_order| %>
     <li>
-     <%= item_order.id %>
+     <%= item_order.dish.name %>
     </li>
   <% end %>
-
 </ul>
+<% end %> -->
