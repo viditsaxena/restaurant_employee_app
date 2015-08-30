@@ -1,7 +1,7 @@
 <h3>Item Orders</h3>
 
 <div class="row">
-<table class="bordered">
+<table class="" id="chef-view">
   <thead>
 
     <% @parties.each do |party| %>
@@ -13,8 +13,11 @@
      <% party.item_orders.each do |item_order| %>
      <tr>
        <td><%= item_order.dish.name %></td>
+       <td class="time-since"><%= ((@time_now - item_order.created_at)/1.hour)%></td>
        <td class="hide_on_click clickable">
-         <i class="material-icons">thumb_up</i>
+         <a class="btn-floating time-action">
+           <i class="material-icons">thumb_up</i>
+         </a>
        </td>
      </tr>
      <% end %>

@@ -3,6 +3,7 @@ class ItemOrdersController < ApplicationController
 
   get '/' do
     @parties = Party.where(has_paid: false)
+    @time_now = Time.now
     erb :'item_orders/index'
   end
 

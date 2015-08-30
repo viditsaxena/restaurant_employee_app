@@ -1,11 +1,15 @@
-<h3>New Item Order</h3>
+<h5>New Item Order</h5>
 
 <div class="row">
 
+  <div class="divider"></div>
 <form class="form" action="/item_orders" method="post">
 
 
-  <p>
+ <div class="col s12" id="party-select">
+
+
+  <p class="center-align">
     <% @parties.each do |party| %>
 
     <input name="party[id]" type="radio" id="party-<%= party.id %>" value="<%= party.id %>"/>
@@ -14,12 +18,14 @@
     <% end %>
   </p>
 
+ </div>
 
 
 
 
 
 
+ <div class="col s12" id="dish-select">
 
     <% @dishes.each do |dish| %>
     <p>
@@ -32,6 +38,7 @@
         <i class="material-icons"></i>
       </button>
 
+ </div>
 
 
 </form>
